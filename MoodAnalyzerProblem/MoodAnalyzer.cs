@@ -16,19 +16,23 @@ namespace MoodAnalyzerProblem
         }
         public string AnalyzeMood()
         {
-            bool result1 = message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
+            try
+            {
+                bool result1 = message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
 
-            if (result1)
+                if (result1)
+                {
+                    return "HAPPY";
+                }
+                else
+                {
+                    return "SAD";
+                }
+            }
+            catch
             {
                 return "HAPPY";
             }
-            bool result2 = message.Contains("Sad", StringComparison.OrdinalIgnoreCase);
-             if (result2)
-            {
-                return "SAD";
-
-            }
-            return "HAPPY";
         }
     }
 }
