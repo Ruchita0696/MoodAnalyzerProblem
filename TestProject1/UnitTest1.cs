@@ -6,26 +6,18 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void Given_HappyOrSad_Return_HappyOrSad()
-        {
-            MoodAnalyzer mood = new MoodAnalyzer();
-            string result = mood.AnalyzeMood("Happy");
-
-            Assert.AreEqual("Happy".ToUpper(), result);
-        }
-        [TestMethod]
         public void Given_Sad_Return_Sad()
         {
-            MoodAnalyzer mood = new MoodAnalyzer();
-            string result = mood.AnalyzeMood("I am in Sad Mood");
+            MoodAnalyzer mood = new MoodAnalyzer("I am in Sad Mood");
+            string result = mood.AnalyzeMood();
 
             Assert.AreEqual("Sad".ToUpper(), result);
         }
         [TestMethod]
-        public void Given_Any_Return_Sad()
+        public void Given_Happy_Return_Happy()
         {
-            MoodAnalyzer mood = new MoodAnalyzer();
-            string result = mood.AnalyzeMood("I am in Any Mood");
+            MoodAnalyzer mood = new MoodAnalyzer("I am in Happy Mood");
+            string result = mood.AnalyzeMood();
 
             Assert.AreEqual("Happy".ToUpper(), result);
         }
