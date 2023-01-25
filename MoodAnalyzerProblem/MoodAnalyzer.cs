@@ -22,7 +22,7 @@ namespace MoodAnalyzerProblem
                 return "SAD";
 
             }
-            return null;
+            return "HAPPY";
         }
     }
 }
