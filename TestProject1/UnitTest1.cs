@@ -29,7 +29,34 @@ namespace TestProject1
 
             Assert.AreEqual("Happy".ToUpper(), result);
         }
-    }
+        [TestMethod]
+        public void Given_Null_Throw_MoodAnalserException()
+        {
+            try
+            {
+                MoodAnalyzer mood = new MoodAnalyzer(null);
+                string result = mood.AnalyzeMood();
+            }
+            catch (ExceptionTest ex)
+            {
+                Assert.AreEqual("Mood Should not be Null", ex.Message);
+            }
 
+        }
+        [TestMethod]
+        public void Given_Empty_Throw_MoodAnalserException()
+        {
+            try
+            {
+                MoodAnalyzer mood = new MoodAnalyzer("");
+                string result = mood.AnalyzeMood();
+            }
+            catch (ExceptionTest ex)
+            {
+                Assert.AreEqual("Mood Should not be Empty", ex.Message);
+            }
+
+        }
+    }
 
 }

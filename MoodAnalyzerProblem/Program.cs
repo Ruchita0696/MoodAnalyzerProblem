@@ -1,13 +1,13 @@
 ﻿namespace MoodAnalyzerProblem
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Enter string to check Mood");
             string mood = Console.ReadLine();
-            MoodAnalyzer analyzer = new MoodAnalyzer();
-            analyzer.AnalyzeMood(mood);
+            MoodAnalyzer analyzer = new MoodAnalyzer(mood);
+            analyzer.AnalyzeMood();
         }
     }
 }
