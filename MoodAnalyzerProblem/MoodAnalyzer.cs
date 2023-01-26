@@ -9,33 +9,56 @@ namespace MoodAnalyzerProblem
     public class MoodAnalyzer
     {
         string message;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Mood_Analyzer"/> class.
+        /// </summary>
         public MoodAnalyzer() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Mood_Analyzer"/> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public MoodAnalyzer(string message)
         {
             this.message = message;
         }
+        /// <summary>
+        /// Analyzes the mood.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Mood__Analyzer_Problem.ExceptionTest">Mood Should not be Empty</exception>
         public string AnalyzeMood()
         {
             try
             {
+
+                if (this.message == null)
+                {
+                    throw new ExceptionTest(ExceptionTest.ExceptionType.NULL_MESSAGE, "Mood Should not be Null");
+                }
                 if (this.message.Equals(string.Empty))
                 {
                     throw new ExceptionTest(ExceptionTest.ExceptionType.EMPTY_MESSAGE, "Mood Should not be Empty");
                 }
-                bool result1 = message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
-
-                if (result1)
+                if (this.message.Contains("Sad", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "SAD";
+                }
+                else if (this.message.Contains("Happy", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "HAPPY";
+                }
+                else if (this.message.Contains("Any", StringComparison.OrdinalIgnoreCase))
                 {
                     return "HAPPY";
                 }
                 else
                 {
-                    return "SAD";
+                    return "HAPPY";
                 }
             }
-           catch(NullReferenceException)
+            catch (ExceptionTest ex)
             {
-                throw new ExceptionTest(ExceptionTest.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+                return ex.Message;
             }
         }
     }
